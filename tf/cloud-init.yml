@@ -7,19 +7,3 @@ users:
     ssh_authorized_keys:
       - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILSToR3JR5gmXkTtgSvCezhJDOxkcG2H02REWf1WZye7 ilyas-murtazin@mia-vb
 timezone: Europe/Moscow
-package_update: true
-package_upgrade: true
-runcmd:
-  - apt install -y ca-certificates curl
-  - install -m 0755 -d /etc/apt/keyrings
-  - curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
-  - chmod a+r /etc/apt/keyrings/docker.asc
-  - echo "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null
-  - chmod a+r /etc/apt/sources.list.d/docker.list
-  - apt update
-  - apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-  - systemctl enable docker
-  - systemctl start docker
-  - groupadd docker
-  - usermod -aG docker user
-  - newgrp docker
