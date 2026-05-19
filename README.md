@@ -121,9 +121,9 @@ services:
 5. (Необязательная часть) Дополнительно настройте remote ssh context к вашему серверу. Отобразите список контекстов и результат удаленного выполнения ```docker ps -a```
 6. Повторите SQL-запрос на сервере и приложите скриншот и ссылку на fork.
 
-Поднял машину и инициализировал yandex cloud container registry с помощью terraform. [Конфигурационне файлы terrafrom](https://github.com/murtazinilyas/05-virt-04-docker-in-practice-mia/tree/main/tf) 
+Поднял машину, инициализировал yandex cloud container registry, перекинул [скрипт](https://github.com/murtazinilyas/05-virt-04-docker-in-practice-mia/blob/main/scripts/example-python.sh) и установил docker с помощью terraform. [Конфигурационне файлы terrafrom](https://github.com/murtazinilyas/05-virt-04-docker-in-practice-mia/tree/main/tf) 
 
-Подождал, пока не установится docker из [метаданных](https://github.com/murtazinilyas/05-virt-04-docker-in-practice-mia/blob/main/tf/cloud-init.yml), вошел по SSH на машину, в папке /opt создал скрипт [example-python.sh](https://github.com/murtazinilyas/05-virt-04-docker-in-practice-mia/blob/main/scripts/example-python.sh):
+Текст скрипта:
 
 ```bash
 #!/bin/bash
@@ -190,7 +190,8 @@ echo "App started successfully"
 3. Настройте выполнение скрипта раз в 1 минуту через cron, crontab или systemctl timer. Придумайте способ не светить логин/пароль в git!!
 4. Предоставьте скрипт, cron-task и скриншот с несколькими резервными копиями в "/opt/backup"
 
-Написал скрипт [backup.sh](https://github.com/murtazinilyas/05-virt-04-docker-in-practice-mia/blob/main/scripts/backup.sh):
+Написал скрипт [backup.sh](https://github.com/murtazinilyas/05-virt-04-docker-in-practice-mia/blob/main/scripts/backup.sh) и перекинул его в задаче 4.
+Текст скрипта:
 
 ```Bash
 #!/bin/bash
